@@ -112,11 +112,134 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
+  Widget listTile({required IconData icon, required String title}) {
+    return ListTile(
+      leading: Icon(
+        icon,
+        size: 32,
+      ),
+      title: Text(
+        title,
+        style: TextStyle(color: Colors.black45),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFFEEEDED),
-      drawer: Drawer(),
+      drawer: Drawer(
+        child: Container(
+          color: Color(0xffd1ad17),
+          child: ListView(
+            children: [
+              DrawerHeader(
+                child: Row(
+                  children: [
+                    CircleAvatar(
+                      backgroundColor: Colors.white54,
+                      radius: 44,
+                      child: CircleAvatar(
+                        radius: 40,
+                        backgroundColor: Colors.yellow,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                      width: 20,
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Welcome Guest'),
+                        SizedBox(
+                          height: 7,
+                        ),
+                        Container(
+                          height: 30,
+                          child: MaterialButton(
+                            onPressed: () {},
+                            child: Text('Login'),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15),
+                              side: BorderSide(width: 2),
+                            ),
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+              listTile(icon: Icons.home_outlined, title: "Home"),
+              listTile(icon: Icons.shop_outlined, title: "Review Cart"),
+              listTile(icon: Icons.person_outline, title: "My Profile"),
+              listTile(
+                  icon: Icons.notifications_outlined, title: "Notification"),
+              listTile(icon: Icons.star_outline, title: "Rating & Review"),
+              listTile(icon: Icons.favorite_outline, title: "Wishlist"),
+              listTile(icon: Icons.copy_outlined, title: "Raise a complain"),
+              listTile(icon: Icons.question_answer_outlined, title: "FAQs"),
+              SizedBox(
+                height: 30,
+              ),
+              Container(
+                height: 350,
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Column(
+                  children: [
+                    Text(
+                      'Contact Support',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          "Call us:",
+                          style: TextStyle(color: Colors.black),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          "+8801718295833",
+                          style: TextStyle(color: Colors.black),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          Text(
+                            "Email us:",
+                            style: TextStyle(color: Colors.black),
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Text(
+                            "hossainshahrier.shm@gmail.com",
+                            style: TextStyle(color: Colors.black),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.black),
         title: Text(
