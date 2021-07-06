@@ -1,4 +1,4 @@
-# food_application
+# Food Application
 
-A Flutter Food delivery project.
+A flutter food delivery project.
 
