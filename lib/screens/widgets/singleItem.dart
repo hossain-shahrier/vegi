@@ -4,7 +4,15 @@ import 'package:food_application/config/colors.dart';
 // ignore: must_be_immutable
 class SingleItem extends StatelessWidget {
   bool isBool = false;
-  SingleItem({required this.isBool});
+  final String productImage;
+  final String productName;
+  final int productPrice;
+  SingleItem({
+    required this.isBool,
+    required this.productImage,
+    required this.productName,
+    required this.productPrice,
+  });
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -17,8 +25,7 @@ class SingleItem extends StatelessWidget {
                 child: Container(
                   height: 100,
                   child: Center(
-                    child: Image.network(
-                        "http://assets.stickpng.com/thumbs/58bf1e2ae443f41d77c734ab.png"),
+                    child: Image.network(productImage),
                   ),
                 ),
               ),
@@ -35,12 +42,12 @@ class SingleItem extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Product name",
+                            productName,
                             style: TextStyle(
                                 color: textColor, fontWeight: FontWeight.bold),
                           ),
                           Text(
-                            "50\$",
+                            "$productPrice\$",
                             style: TextStyle(
                               color: Colors.black,
                             ),
