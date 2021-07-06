@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_application/screens/home/homeScreen.dart';
 import 'package:food_application/screens/profile/profile.dart';
+import 'package:food_application/screens/review_cart/review_cart.dart';
 
 class DrawerSide extends StatelessWidget {
   Widget listTile(
@@ -81,7 +82,15 @@ class DrawerSide extends StatelessWidget {
                   );
                 }),
             listTile(
-                icon: Icons.shop_outlined, title: "Review Cart", onTap: () {}),
+                icon: Icons.shop_outlined,
+                title: "Review Cart",
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => ReviewCart(),
+                    ),
+                  );
+                }),
             listTile(
                 icon: Icons.person_outline,
                 title: "My Profile",

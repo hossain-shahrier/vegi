@@ -4,6 +4,7 @@ import 'package:food_application/config/colors.dart';
 import 'package:food_application/screens/home/drawerSide.dart';
 import 'package:food_application/screens/home/singleProduct.dart';
 import 'package:food_application/screens/product%20overview/productOverview.dart';
+import 'package:food_application/screens/search/search.dart';
 
 class HomeScreen extends StatelessWidget {
   Widget _buildHerbsProduct(context) {
@@ -282,10 +283,19 @@ class HomeScreen extends StatelessWidget {
           CircleAvatar(
             radius: 14,
             backgroundColor: primaryColor,
-            child: Icon(
-              Icons.search,
-              size: 17,
-              color: Colors.black,
+            child: IconButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => Search(),
+                  ),
+                );
+              },
+              icon: Icon(
+                Icons.search,
+                size: 17,
+                color: Colors.black,
+              ),
             ),
           ),
           Padding(
@@ -314,9 +324,10 @@ class HomeScreen extends StatelessWidget {
               height: 150,
               decoration: BoxDecoration(
                   image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: NetworkImage(
-                          'https://image.shutterstock.com/image-photo/closeup-photo-fresh-washed-eggplant-260nw-1734573875.jpg')),
+                    fit: BoxFit.cover,
+                    image: NetworkImage(
+                        'https://image.shutterstock.com/image-photo/closeup-photo-fresh-washed-eggplant-260nw-1734573875.jpg'),
+                  ),
                   color: Colors.red,
                   borderRadius: BorderRadius.circular(10)),
               child: Row(
