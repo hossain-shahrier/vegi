@@ -29,10 +29,21 @@ class _HomeScreenState extends State<HomeScreen> {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            Text(
-              'View all',
-              style: TextStyle(
-                color: Colors.grey,
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => Search(
+                      search: productProvider.getHerbsProductDataList,
+                    ),
+                  ),
+                );
+              },
+              child: Text(
+                'View all',
+                style: TextStyle(
+                  color: Colors.grey,
+                ),
               ),
             ),
           ],
@@ -84,10 +95,21 @@ class _HomeScreenState extends State<HomeScreen> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Text(
-                'View all',
-                style: TextStyle(
-                  color: Colors.grey,
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => Search(
+                        search: productProvider.getFreshProductDataList,
+                      ),
+                    ),
+                  );
+                },
+                child: Text(
+                  'View all',
+                  style: TextStyle(
+                    color: Colors.grey,
+                  ),
                 ),
               ),
             ],
@@ -140,10 +162,21 @@ class _HomeScreenState extends State<HomeScreen> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Text(
-                'View all',
-                style: TextStyle(
-                  color: Colors.grey,
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => Search(
+                        search: productProvider.getRootProductDataList,
+                      ),
+                    ),
+                  );
+                },
+                child: Text(
+                  'View all',
+                  style: TextStyle(
+                    color: Colors.grey,
+                  ),
                 ),
               ),
             ],
@@ -210,11 +243,11 @@ class _HomeScreenState extends State<HomeScreen> {
             backgroundColor: primaryColor,
             child: IconButton(
               onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => Search(),
-                  ),
-                );
+                // Navigator.of(context).push(
+                //   MaterialPageRoute(
+                //     builder: (context) => Search(),
+                //   ),
+                // );
               },
               icon: Icon(
                 Icons.search,
