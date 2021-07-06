@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:food_application/screens/home/homeScreen.dart';
+import 'package:food_application/screens/profile/profile.dart';
 
 class DrawerSide extends StatelessWidget {
-  Widget listTile({required IconData icon, required String title}) {
+  Widget listTile(
+      {required IconData icon,
+      required String title,
+      required Function onTap}) {
     return ListTile(
+      onTap: () {
+        onTap();
+      },
       leading: Icon(
         icon,
         size: 32,
@@ -62,14 +70,43 @@ class DrawerSide extends StatelessWidget {
                 ],
               ),
             ),
-            listTile(icon: Icons.home_outlined, title: "Home"),
-            listTile(icon: Icons.shop_outlined, title: "Review Cart"),
-            listTile(icon: Icons.person_outline, title: "My Profile"),
-            listTile(icon: Icons.notifications_outlined, title: "Notification"),
-            listTile(icon: Icons.star_outline, title: "Rating & Review"),
-            listTile(icon: Icons.favorite_outline, title: "Wishlist"),
-            listTile(icon: Icons.copy_outlined, title: "Raise a complain"),
-            listTile(icon: Icons.question_answer_outlined, title: "FAQs"),
+            listTile(
+                icon: Icons.home_outlined,
+                title: "Home",
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => HomeScreen(),
+                    ),
+                  );
+                }),
+            listTile(
+                icon: Icons.shop_outlined, title: "Review Cart", onTap: () {}),
+            listTile(
+                icon: Icons.person_outline,
+                title: "My Profile",
+                onTap: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) => Profile()));
+                }),
+            listTile(
+                icon: Icons.notifications_outlined,
+                title: "Notification",
+                onTap: () {}),
+            listTile(
+                icon: Icons.star_outline,
+                title: "Rating & Review",
+                onTap: () {}),
+            listTile(
+                icon: Icons.favorite_outline, title: "Wishlist", onTap: () {}),
+            listTile(
+                icon: Icons.copy_outlined,
+                title: "Raise a complain",
+                onTap: () {}),
+            listTile(
+                icon: Icons.question_answer_outlined,
+                title: "FAQs",
+                onTap: () {}),
             SizedBox(
               height: 30,
             ),

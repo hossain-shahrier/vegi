@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 // import 'package:food_application/auth/signin.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:food_application/auth/signin.dart';
 import 'package:food_application/config/colors.dart';
-import 'package:food_application/screens/home/homeScreen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,6 +20,6 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: scaffoldBackgroundColor,
         ),
         debugShowCheckedModeBanner: false,
-        home: HomeScreen());
+        home: SignIn());
   }
 }
