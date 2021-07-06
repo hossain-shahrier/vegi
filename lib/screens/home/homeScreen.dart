@@ -36,33 +36,48 @@ class HomeScreen extends StatelessWidget {
             children: [
               SingleProduct(
                 onTap: () {
-                  Navigator.of(context).push(
+                  Navigator.push(
+                    context,
                     MaterialPageRoute(
-                      builder: (context) => ProductOverview(),
+                      builder: (context) => ProductOverview(
+                        productName: 'Fresh Basil',
+                        productImage:
+                            "http://assets.stickpng.com/thumbs/58bf1e2ae443f41d77c734ab.png",
+                      ),
                     ),
                   );
                 },
                 productName: 'Fresh Basil',
                 productImage:
-                    'https://www.wiffens.com/content/uploads/basil.png',
+                    'http://assets.stickpng.com/thumbs/58bf1e2ae443f41d77c734ab.png',
               ),
               SingleProduct(
                 onTap: () {
-                  Navigator.of(context).push(
+                  Navigator.push(
+                    context,
                     MaterialPageRoute(
-                      builder: (context) => ProductOverview(),
+                      builder: (context) => ProductOverview(
+                        productName: 'Fresh Mint',
+                        productImage:
+                            'http://assets.stickpng.com/thumbs/58bf1e5fe443f41d77c734b2.png',
+                      ),
                     ),
                   );
                 },
                 productName: 'Fresh Mint',
                 productImage:
-                    'https://lh3.googleusercontent.com/proxy/GTJw6d0WQ0qcJJ-BzjspcSAjY0tRo93FBq_Or70taav7YpxeYYc-ZtrrX9WdidcpsZ7T9yTq64bKFN4yo6UfrOgNkAUhuVEVoG7miBkgeqlxksQD6xUv8bgkAA',
+                    'http://assets.stickpng.com/thumbs/58bf1e5fe443f41d77c734b2.png',
               ),
               SingleProduct(
                 onTap: () {
-                  Navigator.of(context).push(
+                  Navigator.push(
+                    context,
                     MaterialPageRoute(
-                      builder: (context) => ProductOverview(),
+                      builder: (context) => ProductOverview(
+                        productName: 'Fresh Ginger',
+                        productImage:
+                            'http://assets.stickpng.com/thumbs/5b4eed1cc051e602a568ce0e.png',
+                      ),
                     ),
                   );
                 },
@@ -108,9 +123,14 @@ class HomeScreen extends StatelessWidget {
               children: [
                 SingleProduct(
                   onTap: () {
-                    Navigator.of(context).push(
+                    Navigator.push(
+                      context,
                       MaterialPageRoute(
-                        builder: (context) => ProductOverview(),
+                        builder: (context) => ProductOverview(
+                          productName: 'Fresh watermelon',
+                          productImage:
+                              'http://assets.stickpng.com/thumbs/580b57fcd9996e24bc43c1a6.png',
+                        ),
                       ),
                     );
                   },
@@ -120,9 +140,14 @@ class HomeScreen extends StatelessWidget {
                 ),
                 SingleProduct(
                   onTap: () {
-                    Navigator.of(context).push(
+                    Navigator.push(
+                      context,
                       MaterialPageRoute(
-                        builder: (context) => ProductOverview(),
+                        builder: (context) => ProductOverview(
+                          productName: 'Fresh Mango',
+                          productImage:
+                              'http://assets.stickpng.com/thumbs/580b57fcd9996e24bc43c15d.png',
+                        ),
                       ),
                     );
                   },
@@ -132,9 +157,14 @@ class HomeScreen extends StatelessWidget {
                 ),
                 SingleProduct(
                   onTap: () {
-                    Navigator.of(context).push(
+                    Navigator.push(
+                      context,
                       MaterialPageRoute(
-                        builder: (context) => ProductOverview(),
+                        builder: (context) => ProductOverview(
+                          productName: 'Fresh Orange',
+                          productImage:
+                              'http://assets.stickpng.com/thumbs/580b57fcd9996e24bc43c170.png',
+                        ),
                       ),
                     );
                   },
@@ -181,9 +211,14 @@ class HomeScreen extends StatelessWidget {
               children: [
                 SingleProduct(
                   onTap: () {
-                    Navigator.of(context).push(
+                    Navigator.push(
+                      context,
                       MaterialPageRoute(
-                        builder: (context) => ProductOverview(),
+                        builder: (context) => ProductOverview(
+                          productName: 'Fennel',
+                          productImage:
+                              'http://assets.stickpng.com/thumbs/585ea811cb11b227491c353f.png',
+                        ),
                       ),
                     );
                   },
@@ -193,9 +228,14 @@ class HomeScreen extends StatelessWidget {
                 ),
                 SingleProduct(
                   onTap: () {
-                    Navigator.of(context).push(
+                    Navigator.push(
+                      context,
                       MaterialPageRoute(
-                        builder: (context) => ProductOverview(),
+                        builder: (context) => ProductOverview(
+                          productName: 'Garlic',
+                          productImage:
+                              'http://assets.stickpng.com/thumbs/580b57fcd9996e24bc43c218.png',
+                        ),
                       ),
                     );
                   },
@@ -205,9 +245,14 @@ class HomeScreen extends StatelessWidget {
                 ),
                 SingleProduct(
                   onTap: () {
-                    Navigator.of(context).push(
+                    Navigator.push(
+                      context,
                       MaterialPageRoute(
-                        builder: (context) => ProductOverview(),
+                        builder: (context) => ProductOverview(
+                          productName: 'Carrot',
+                          productImage:
+                              'http://assets.stickpng.com/thumbs/580b57fcd9996e24bc43c20a.png',
+                        ),
                       ),
                     );
                   },
@@ -276,8 +321,8 @@ class HomeScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10)),
               child: Row(
                 children: [
-                  Expanded(
-                    child: Container(
+                  Container(
+                    child: Expanded(
                       child: Column(
                         children: [
                           Padding(
