@@ -2,8 +2,10 @@ import 'package:bordered_text/bordered_text.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
+import 'package:food_application/providers/userProvider.dart';
 import 'package:food_application/screens/home/homeScreen.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:provider/provider.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({Key? key}) : super(key: key);
@@ -13,6 +15,7 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
+  late UserProvider userProvider;
   Future<User?> _googleSignUp() async {
     try {
       final GoogleSignIn _googleSignIn = GoogleSignIn(
@@ -32,7 +35,12 @@ class _SignInState extends State<SignIn> {
       final User? user = (await _auth.signInWithCredential(credential)).user;
 
       print(user!.displayName);
-
+      userProvider.addUserData(
+        currentuser: user,
+        userName: user.displayName,
+        userEmail: user.email,
+        userImage: user.photoURL,
+      );
       return user;
     } catch (e) {
       print(e);
@@ -41,6 +49,7 @@ class _SignInState extends State<SignIn> {
 
   @override
   Widget build(BuildContext context) {
+    userProvider = Provider.of<UserProvider>(context);
     return Scaffold(
       body: Container(
         height: double.infinity,
@@ -94,10 +103,13 @@ class _SignInState extends State<SignIn> {
                         Buttons.Google,
                         text: "Sign up with Google",
                         onPressed: () async {
-                          await _googleSignUp().then((value) =>
-                              Navigator.of(context).pushReplacement(
-                                  MaterialPageRoute(
-                                      builder: (context) => HomeScreen())));
+                          await _googleSignUp().then(
+                            (value) => Navigator.of(context).pushReplacement(
+                              MaterialPageRoute(
+                                builder: (context) => HomeScreen(),
+                              ),
+                            ),
+                          );
                         },
                       ),
                     ],
