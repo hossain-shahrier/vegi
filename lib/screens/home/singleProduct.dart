@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_application/screens/widgets/count.dart';
 
 class SingleProduct extends StatelessWidget {
   final String productImage;
@@ -76,35 +77,7 @@ class SingleProduct extends StatelessWidget {
                     SizedBox(
                       width: 5,
                     ),
-                    Container(
-                      height: 30,
-                      width: 50,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.grey),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.remove,
-                            size: 15,
-                            color: Color(0xffd0b84c),
-                          ),
-                          Text(
-                            '1',
-                            style: TextStyle(
-                                color: Color(0xffd0b84c),
-                                fontWeight: FontWeight.bold),
-                          ),
-                          Icon(
-                            Icons.add,
-                            size: 15,
-                            color: Color(0xffd0b84c),
-                          )
-                        ],
-                      ),
-                    ),
+                    Count()
                   ],
                 )
               ],
