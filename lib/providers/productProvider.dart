@@ -8,12 +8,14 @@ class ProductProvider with ChangeNotifier {
   List<ProductModel> rootProductList = [];
   late ProductModel productModel;
 
+  List<ProductModel> search = [];
   productmodel(QueryDocumentSnapshot elements) {
     productModel = ProductModel(
       productImage: elements.get("productImage"),
       productName: elements.get("productName"),
       productPrice: elements.get("productPrice"),
     );
+    search.add(productModel);
   }
 
   // Herb Product
@@ -65,5 +67,10 @@ class ProductProvider with ChangeNotifier {
 
   List<ProductModel> get getRootProductDataList {
     return rootProductList;
+  }
+
+  // Search All
+  List<ProductModel> get getAllProductList {
+    return search;
   }
 }
