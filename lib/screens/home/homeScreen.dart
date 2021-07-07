@@ -243,11 +243,13 @@ class _HomeScreenState extends State<HomeScreen> {
             backgroundColor: primaryColor,
             child: IconButton(
               onPressed: () {
-                // Navigator.of(context).push(
-                //   MaterialPageRoute(
-                //     builder: (context) => Search(),
-                //   ),
-                // );
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => Search(
+                      search: productProvider.getAllProductList,
+                    ),
+                  ),
+                );
               },
               icon: Icon(
                 Icons.search,

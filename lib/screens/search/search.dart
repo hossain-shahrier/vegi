@@ -11,8 +11,18 @@ class Search extends StatefulWidget {
 }
 
 class _SearchState extends State<Search> {
+  String query = "";
+
+  searchItem(String query) {
+    List<ProductModel> searchFood = widget.search.where((element) {
+      return element.productName.toLowerCase().contains(query);
+    }).toList();
+    return searchFood;
+  }
+
   @override
   Widget build(BuildContext context) {
+    List<ProductModel> _searchItem = searchItem(query);
     return Scaffold(
       appBar: AppBar(
         title: Text('Search'),
@@ -32,6 +42,13 @@ class _SearchState extends State<Search> {
             height: 52,
             margin: EdgeInsets.symmetric(horizontal: 20),
             child: TextField(
+              onChanged: (value) {
+                setState(
+                  () {
+                    query = value;
+                  },
+                );
+              },
               decoration: InputDecoration(
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(30),
@@ -48,7 +65,7 @@ class _SearchState extends State<Search> {
             height: 10,
           ),
           Column(
-            children: widget.search.map(
+            children: _searchItem.map(
               (data) {
                 return SingleItem(
                   isBool: false,

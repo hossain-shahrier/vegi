@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:food_application/config/colors.dart';
-import 'package:food_application/screens/widgets/singleItem.dart';
 
 class ReviewCart extends StatelessWidget {
   @override
